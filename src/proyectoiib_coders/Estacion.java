@@ -22,6 +22,7 @@ public class Estacion  extends AgenciaAeronautica{
     }
 
     public boolean verificarAltitud(){
+        //aqui se verifica
         return false;
     }
     
