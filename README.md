@@ -4,5 +4,4 @@ El proyecto consiste en una colaboración entre diferentes disciplinas, entre es
 ## Integrantes
 * David  Mena
 * Ricardo Teran
-* Javier Tintin
-
+* Xavier Tintin
