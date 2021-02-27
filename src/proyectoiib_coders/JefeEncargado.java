@@ -20,4 +20,24 @@ public class JefeEncargado extends AgenciaAeronautica{
         this.claveAcceso = claveAcceso;
     }
     
+    //codigo para validar la clave del jefe
+    public boolean validateKey(String clave){
+        
+        char[] caracteres = this.claveAcceso.toCharArray(); //pasando la clave de Acceso a un array de caracteres
+        char[] caracteres2 = clave.toCharArray(); // pasando la clave ingresada a un array de caracteres
+        boolean verif = false;
+        int cont = 0;
+        do{
+            if(caracteres[cont] == caracteres2[cont]){
+                verif = true;
+            }else{
+                verif = false;
+            }
+            cont ++;
+            
+        }while(verif == true && cont == caracteres.length);
+        
+        return verif;
+    }
+    
 }
