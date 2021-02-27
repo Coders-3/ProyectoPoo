@@ -5,6 +5,8 @@
  */
 package proyectoiib_coders;
 
+import javax.swing.JPasswordField;
+
 /**
  *
  * @author alext rikardo y david
@@ -17,7 +19,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
     
     //Declarando la Ventana InformacionDatos
     InformacionDatos VentanaDatos = new InformacionDatos();
-    
+       
     public GUISpaceCenter() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -55,7 +57,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
         txtSCAltitude = new javax.swing.JTextField();
         txtHeadEngineer = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        txtPassWord = new javax.swing.JTextField();
+        tptPassWord = new javax.swing.JPasswordField();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -220,8 +222,8 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                     .addComponent(jLabel18))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtHeadEngineer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPassWord, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tptPassWord, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtHeadEngineer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(104, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -235,16 +237,16 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                             .addComponent(txtHeadEngineer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtSCName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel18)
-                            .addComponent(txtPassWord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(tptPassWord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(txtSCAltitude, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Time Assignation"));
@@ -398,7 +400,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCleanUp)
                     .addComponent(btnSave))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -412,21 +414,22 @@ public class GUISpaceCenter extends javax.swing.JFrame {
         String passWord;
         
         headEngineer = txtHeadEngineer.getText();
-        passWord = txtPassWord.getText();
+        passWord = String.valueOf(tptPassWord.getPassword());
         
         //LLamando al constructor del Jefe
-        AgenciaAeronautica jefe = new JefeEncargado(headEngineer, passWord);
+        JefeEncargado jefe = new JefeEncargado(headEngineer, passWord);
+        //jefe.validateKey(passWordValidation);
         
         //Pasando el nombre del jefe a IformacionDatos
-        InformacionDatos.txtName.setText(headEngineer);
-        
+        InformacionDatos.txtName.setText(jefe.getNombre());
+        ValidacionJefe.txtNameValidation.setText(jefe.getNombre());
         //Mostrar la ventana InformacionDatos
-        VentanaDatos.setVisible(true);
-        
-        
-        
+        VentanaDatos.setVisible(true);    
     }//GEN-LAST:event_btnSaveActionPerformed
 
+    
+ 
+    
     /**
      * @param args the command line arguments
      */
@@ -462,6 +465,8 @@ public class GUISpaceCenter extends javax.swing.JFrame {
         });
     }
 
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnCleanUp;
     private javax.swing.JToggleButton btnSave;
@@ -491,13 +496,13 @@ public class GUISpaceCenter extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JPasswordField tptPassWord;
     private javax.swing.JTextField txtDay;
     private javax.swing.JTextField txtHeadEngineer;
     private javax.swing.JTextField txtHour;
     private javax.swing.JTextField txtMinute;
     private javax.swing.JTextField txtMonth;
     private javax.swing.JTextField txtOrbitAltitude;
-    private javax.swing.JTextField txtPassWord;
     private javax.swing.JTextField txtPropellantMass;
     private javax.swing.JTextField txtRocketName;
     private javax.swing.JTextField txtSCAltitude;
@@ -506,3 +511,4 @@ public class GUISpaceCenter extends javax.swing.JFrame {
     private javax.swing.JTextField txtYear;
     // End of variables declaration//GEN-END:variables
 }
+

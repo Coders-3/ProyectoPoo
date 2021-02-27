@@ -42,7 +42,7 @@ public class JefeEncargado extends AgenciaAeronautica{
             }
             cont ++;
             
-        }while(verif == true && cont == caracteres.length);
+        }while(verif == true && cont < caracteres.length);
         
         return verif;
     }

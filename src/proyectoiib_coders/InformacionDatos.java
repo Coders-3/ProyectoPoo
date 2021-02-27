@@ -35,6 +35,7 @@ public class InformacionDatos extends javax.swing.JFrame {
         txtName = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnViewData = new javax.swing.JButton();
+        btnCloseInformation = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Data Information");
@@ -50,6 +51,13 @@ public class InformacionDatos extends javax.swing.JFrame {
             }
         });
 
+        btnCloseInformation.setText("Close");
+        btnCloseInformation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCloseInformationActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -59,9 +67,11 @@ public class InformacionDatos extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtName)
-                .addContainerGap(346, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(321, Short.MAX_VALUE)
+                .addComponent(btnCloseInformation)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnViewData)
                 .addGap(21, 21, 21))
         );
@@ -73,7 +83,9 @@ public class InformacionDatos extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(txtName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 335, Short.MAX_VALUE)
-                .addComponent(btnViewData)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnViewData)
+                    .addComponent(btnCloseInformation))
                 .addGap(19, 19, 19))
         );
 
@@ -84,6 +96,11 @@ public class InformacionDatos extends javax.swing.JFrame {
         //Bonton para acceder a la tabla de valores
         VentanaValidacion.setVisible(true);
     }//GEN-LAST:event_btnViewDataActionPerformed
+
+    private void btnCloseInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseInformationActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCloseInformationActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,6 +138,7 @@ public class InformacionDatos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCloseInformation;
     private javax.swing.JButton btnViewData;
     private javax.swing.JLabel jLabel1;
     public static javax.swing.JLabel txtName;
