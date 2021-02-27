@@ -30,6 +30,11 @@ public class AgenciaAeronautica {
         this.id = id;
     }
     
+    //primer constructor
+    public AgenciaAeronautica(String name){
+        super();
+        this.nombre = name;
+    }
     
     
     
