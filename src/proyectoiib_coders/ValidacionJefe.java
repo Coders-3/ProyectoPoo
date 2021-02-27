@@ -17,19 +17,8 @@ public class ValidacionJefe extends javax.swing.JFrame {
      * Creates new form ValidacionJefe
      */
     
-    //Declarando la ventana TablaDatos
-    public String passWordValidation;
+    //Declarando la ventana TablaDatos\
     TablaDatos VentanaTabla = new TablaDatos();
-    
-    private GUISpaceCenter v1;
-    //resibe parametros
-    public ValidacionJefe(GUISpaceCenter parent){
-        this.v1 = parent;
-    }
-    public ValidacionJefe() {
-        initComponents();
-        this.setLocationRelativeTo(null);
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -120,7 +109,7 @@ public class ValidacionJefe extends javax.swing.JFrame {
 
     private void btnAcceptValidationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptValidationActionPerformed
         // Boton Accept (para validar la contrasenia)
-        //String passWordValidation;
+        String passWordValidation;
         passWordValidation = String.valueOf(tptValidationPassWord.getPassword());
         
         //Validando Password
@@ -174,7 +163,7 @@ public class ValidacionJefe extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPasswordField tptValidationPassWord;
+    private static javax.swing.JPasswordField tptValidationPassWord;
     public static javax.swing.JLabel txtNameValidation;
     // End of variables declaration//GEN-END:variables
 }

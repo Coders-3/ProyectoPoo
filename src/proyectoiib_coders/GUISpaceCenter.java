@@ -19,7 +19,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
     
     //Declarando la Ventana InformacionDatos
     InformacionDatos VentanaDatos = new InformacionDatos();
-       
+    ValidacionJefe VentanaValidacion = new ValidacionJefe();   
     public GUISpaceCenter() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -406,6 +406,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // Programando el boton Save
         
@@ -418,7 +419,6 @@ public class GUISpaceCenter extends javax.swing.JFrame {
         
         //LLamando al constructor del Jefe
         JefeEncargado jefe = new JefeEncargado(headEngineer, passWord);
-        //jefe.validateKey(passWordValidation);
         
         //Pasando el nombre del jefe a IformacionDatos
         InformacionDatos.txtName.setText(jefe.getNombre());
@@ -427,8 +427,6 @@ public class GUISpaceCenter extends javax.swing.JFrame {
         VentanaDatos.setVisible(true);    
     }//GEN-LAST:event_btnSaveActionPerformed
 
-    
- 
     
     /**
      * @param args the command line arguments
@@ -496,7 +494,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JPasswordField tptPassWord;
+    private static javax.swing.JPasswordField tptPassWord;
     private javax.swing.JTextField txtDay;
     private javax.swing.JTextField txtHeadEngineer;
     private javax.swing.JTextField txtHour;

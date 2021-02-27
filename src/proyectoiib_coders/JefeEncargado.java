@@ -9,7 +9,7 @@ package proyectoiib_coders;
  *
  * @author Ricardo
  */
-public class JefeEncargado extends AgenciaAeronautica{
+ class JefeEncargado extends AgenciaAeronautica{
     
     private String claveAcceso;
 
