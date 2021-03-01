@@ -11,12 +11,14 @@ package proyectoiib_coders;
  */
 public class Hora {
     
-    private int hora;
-    private int minutos;
-    private int segundos;
+    private int hora=1;
+    private int minutos=1;
+    private int segundos=1;
     
     public boolean verificarHora(){
-        return false;//false temporal *eliminar al implemental el codigo*
+        minutos=(int) (((hora-Math.floor(hora)*100)*60)/100);
+        
+        return false;//false temporal *eliminar al implemental el codigo*       //return int 
     }
     
     

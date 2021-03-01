@@ -9,7 +9,7 @@ package proyectoiib_coders;
  *
  * @author USER
  */
-public class AgenciaAeronautica {
+public class AgenciaAeronautica extends GUISpaceCenter{
     
     private String nombre;
     private String id;

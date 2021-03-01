@@ -18,6 +18,10 @@ public class Nave extends AgenciaAeronautica implements Viaje {
     private double velocidad;
     private double periodoOrbita;
 
+    public Nave(String name) {
+        super(name);
+    }
+
     public double getCombustible() {
         return combustible;
     }

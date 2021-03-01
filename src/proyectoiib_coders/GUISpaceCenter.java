@@ -5,6 +5,7 @@
  */
 package proyectoiib_coders;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 
 /**
@@ -16,10 +17,9 @@ public class GUISpaceCenter extends javax.swing.JFrame {
     /**
      * Creates new form GUISpaceCenter
      */
-    
+
     //Declarando la Ventana InformacionDatos
-    InformacionDatos VentanaDatos = new InformacionDatos();
-    ValidacionJefe VentanaValidacion = new ValidacionJefe();   
+    
     public GUISpaceCenter() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -166,7 +166,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 20, Short.MAX_VALUE))
+                        .addGap(0, 48, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -188,7 +188,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtOrbitAltitude, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
         );
@@ -246,7 +246,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(txtSCAltitude, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Time Assignation"));
@@ -291,7 +291,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("Clock Time")));
@@ -312,7 +312,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                     .addComponent(jLabel14)
                     .addComponent(jLabel15)
                     .addComponent(jLabel16))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtHour, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
                     .addComponent(txtMinute)
@@ -334,7 +334,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
                     .addComponent(txtSecond, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -353,9 +353,9 @@ public class GUISpaceCenter extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         btnCleanUp.setText("Clean Up");
@@ -372,62 +372,122 @@ public class GUISpaceCenter extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(47, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCleanUp)
-                .addGap(18, 18, 18)
-                .addComponent(btnSave)
-                .addGap(18, 18, 18))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnCleanUp, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCleanUp)
                     .addComponent(btnSave))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // Programando el boton Save
+        InformacionDatos VentanaDatos = new InformacionDatos();
+        VentanaDatos.show();
+        //Datos
+        String headEngineer, passWord;
+        double orbitAltitude=400;
+        double spaceCenterAltitude=0;
+        double vf, v0=0;
+        double tf;
+        double dryMass=120187.59;
+        double grossMass=1230000;
+        double propMass=grossMass-dryMass;
+        final double G=6.673*Math.pow(10,-11);
+        final double EARTHMASS=5.9729*Math.pow(10,24);
+        final double PI=3.14159;
+        double R, T;
+        double a;
+        String spaceCenterDisplay, spaceCeneterAlititudeDisplay, rocketDisplay, orbitAltitudeDisplay, finalVelDisplay, finalGrossDisplay;
+
+        try{
+          if(orbitAltitude>=304 && orbitAltitude<=528){
+            R=orbitAltitude+6378.137;   //Distancia del centro de la tierra a la altura de orbita en kilometros
+            R*=1000;                   //transformacion de kilometros a metros
+            vf=Math.sqrt((G*EARTHMASS)/R);          //calculo de la velocidad final
+            T=(2*PI*R)/vf;              //calculo del periodo
+            tf=(vf+Math.log(dryMass/grossMass))/9.81; //calculo del tiempo que demorara en entrar a orbita con la ecuacion del cohete
+            
+            
+            //Calculos del viaje
+            vf=0;
+            for(int t=0;t<=tf+1;t++){
+                if(t<tf){      //mientras estan prendidos los propulsores
+                    v0=vf;
+                    grossMass=1320000-(t*(propMass/tf));  //el peso de la nave en cada instante dado una expulsion de combustible uniforme
+                    vf=3200*Math.log((grossMass+((t-1)*(propMass/tf)))/grossMass)-(9.81);
+                    a=vf-v0;
+                }
+                else{           //se apagan los propulsores
+                    vf=3200*Math.log((grossMass+((tf-1)*(propMass/tf)))/grossMass)-(9.81);
+                    a=0;
+                }
+                //tabla para llenar con los datos
+                
+                
+            }
+            //visualizacion en la nueva ventana para los datos
+            InformacionDatos.lblSpaceCenterDisplay.setText("");
+            InformacionDatos.lblSpaceAltitudeDisplay.setText("");
+            InformacionDatos.lblrocketDisplay.setText("");
+            InformacionDatos.lblorbitalAltitudeDisplay.setText(Double.toString(orbitAltitude));
+            InformacionDatos.lblfinalVelDisplay.setText(Double.toString(vf));
+            InformacionDatos.lblfinalGrossDisplay.setText(Double.toString(grossMass));
+          }
+          else{
+            JOptionPane.showMessageDialog(rootPane, "Debe ingresar una altitud de orbita entre [304-528] [km]");
+          }
+        }catch(NumberFormatException nfe){
+            JOptionPane.showMessageDialog(rootPane, "Debe ingresar un numero");
+        }
         
-        //Datos del Jefe
-        String headEngineer;
-        String passWord;
-        
+
         headEngineer = txtHeadEngineer.getText();
         passWord = String.valueOf(tptPassWord.getPassword());
-        
+
         //LLamando al constructor del Jefe
         JefeEncargado jefe = new JefeEncargado(headEngineer, passWord);
+
+        //Pasando el nombre del jefe a InformacionDatos
         
-        //Pasando el nombre del jefe a IformacionDatos
-        InformacionDatos.txtName.setText(jefe.getNombre());
-        ValidacionJefe.txtNameValidation.setText(jefe.getNombre());
+        //InformacionDatos.lblEngineerDisplay.setText(jefe.getNombre());    //no vale
+        //ValidacionJefe.txtNameValidation.setText(jefe.getNombre());
+        
         //Mostrar la ventana InformacionDatos
-        VentanaDatos.setVisible(true);    
+        
+        
+        dispose();
     }//GEN-LAST:event_btnSaveActionPerformed
 
-    
+
     /**
      * @param args the command line arguments
      */
@@ -463,8 +523,8 @@ public class GUISpaceCenter extends javax.swing.JFrame {
         });
     }
 
-    
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnCleanUp;
     private javax.swing.JToggleButton btnSave;
@@ -509,4 +569,3 @@ public class GUISpaceCenter extends javax.swing.JFrame {
     private javax.swing.JTextField txtYear;
     // End of variables declaration//GEN-END:variables
 }
-

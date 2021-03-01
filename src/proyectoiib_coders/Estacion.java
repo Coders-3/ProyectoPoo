@@ -9,9 +9,13 @@ package proyectoiib_coders;
  *
  * @author USER
  */
-public class Estacion  extends AgenciaAeronautica{
+public class Estacion extends AgenciaAeronautica{
     
     private double Altitud;
+
+    public Estacion(String name) {
+        super(name);
+    }
 
     public double getAltitud() {
         return Altitud;
