@@ -475,7 +475,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
 
         //LLamando al constructor del Jefe
         JefeEncargado jefe = new JefeEncargado(headEngineer, passWord);
-
+        
         //Pasando el nombre del jefe a InformacionDatos
         
         //InformacionDatos.lblEngineerDisplay.setText(jefe.getNombre());    //no vale

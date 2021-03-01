@@ -291,7 +291,7 @@ public class InformacionDatos extends javax.swing.JFrame {
 
     private void btnViewDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDataActionPerformed
         //Bonton para acceder a la tabla de valores
-        VentanaValidacion.setVisible(true);
+        MostrarTabla VentanaTabla = new MostrarTabla();
     }//GEN-LAST:event_btnViewDataActionPerformed
 
     private void btnCloseInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseInformationActionPerformed
