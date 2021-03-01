@@ -188,7 +188,7 @@ public class InformacionDatos extends javax.swing.JFrame {
                     .addComponent(lblfinalGrossDisplay))
                 .addGap(52, 52, 52)
                 .addComponent(jLabel16)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Time"));

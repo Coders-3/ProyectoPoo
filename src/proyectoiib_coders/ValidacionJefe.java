@@ -19,7 +19,12 @@ public class ValidacionJefe extends javax.swing.JFrame {
     
     //Declarando la ventana TablaDatos\
     TablaDatos VentanaTabla = new TablaDatos();
-
+    
+    
+    public ValidacionJefe() {
+        initComponents();
+        this.setLocationRelativeTo(null);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -83,7 +88,7 @@ public class ValidacionJefe extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 790, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -116,7 +121,7 @@ public class ValidacionJefe extends javax.swing.JFrame {
                                 .addComponent(btnCancel)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnAcceptValidation)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 22, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
