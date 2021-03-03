@@ -12,9 +12,13 @@ import javax.swing.table.DefaultTableModel;
  * @author alext rikardo y david
  */
 public class GUISpaceCenter extends javax.swing.JFrame {
-    /**
-     * Creates new form GUISpaceCenter
-     */
+    
+    //Creando la ventana de validacion
+    ValidateKey wKey = new ValidateKey(this, true);
+    //InformacionDatos VentanaDatos = new InformacionDatos();
+    //ValidacionJefe VentanaValidacion = new ValidacionJefe();
+    
+    
     Estacion e1;
     Hora h1;
     Nave n1;
@@ -222,11 +226,13 @@ public class GUISpaceCenter extends javax.swing.JFrame {
             }
         });
 
-        txtHeadEngineer.setText("Armstrong");
-
         jLabel18.setText("Password:");
 
-        tptPassWord.setText("0000");
+        tptPassWord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tptPassWordActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -475,12 +481,16 @@ public class GUISpaceCenter extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        
         // Programando el boton Save
-        InformacionDatos VentanaDatos = new InformacionDatos();
-        ValidacionJefe VentanaValidacion = new ValidacionJefe();
+        //InformacionDatos VentanaDatos = new InformacionDatos();
+        //ValidacionJefe VentanaValidacion = new ValidacionJefe();
         ValidacionJefe.tblDatos.setModel(modeloTabla);
-        VentanaValidacion.show();
-        VentanaDatos.show();
+        
+        //Mostrando las ventanas
+        //VentanaValidacion.show();
+        wKey.VentanaDatos.show();
+        System.out.println("Mostrando la ventana datos");
         
         
         //Datos
@@ -508,6 +518,8 @@ public class GUISpaceCenter extends javax.swing.JFrame {
             passWord=String.valueOf(tptPassWord.getPassword());
             spaceCenterDisplay=txtSCName.getText();
             
+            //Creando al jefe
+            wKey.jefe = new JefeEncargado(headEngineer, passWord);
             
 
             if(orbitAltitude>=304 && orbitAltitude<=528){
@@ -654,6 +666,10 @@ public class GUISpaceCenter extends javax.swing.JFrame {
             txtSecond.setText(null);
         }
     }//GEN-LAST:event_txtSecondKeyReleased
+
+    private void tptPassWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tptPassWordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tptPassWordActionPerformed
 
     /**
      * @param args the command line arguments

@@ -27,6 +27,10 @@ package proyectoiib_coders;
         this.claveAcceso = passWord;
     }
     
+    public  void mensaje(){
+        System.out.println("este es un mensaje");
+    }
+    
     //codigo para validar la clave del jefe
     public boolean validateKey(String clave){
         

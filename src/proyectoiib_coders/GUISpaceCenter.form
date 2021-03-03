@@ -369,9 +369,6 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtHeadEngineer">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Armstrong"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel18">
           <Properties>
@@ -379,9 +376,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="tptPassWord">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="0000"/>
-          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tptPassWordActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
           </AuxValues>

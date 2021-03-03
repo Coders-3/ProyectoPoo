@@ -11,9 +11,8 @@ package proyectoiib_coders;
  */
 public class InformacionDatos extends javax.swing.JFrame {
 
-    /**
-     * Creates new form InformacionDatos
-     */
+    //Probando Algo
+    //GUISpaceCenter wSpace = new GUISpaceCenter();
     
     
     public InformacionDatos() {
@@ -299,8 +298,10 @@ public class InformacionDatos extends javax.swing.JFrame {
 
     private void btnViewDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDataActionPerformed
         //Bonton para acceder a la tabla de valores
-        //ValidacionJefe VentanaValidacion = new ValidacionJefe();
-        //VentanaValidacion.show();
+        //GUISpaceCenter.wKey.show();
+        //GUISpaceCenter.wKey.setVisible(true);
+        //wSpace.wKey.setVisible(true);
+        //System.out.println("mostrando la ventana de validacion");
     }//GEN-LAST:event_btnViewDataActionPerformed
 
     private void btnCloseInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseInformationActionPerformed
