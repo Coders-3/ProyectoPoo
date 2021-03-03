@@ -508,18 +508,19 @@ public class GUISpaceCenter extends javax.swing.JFrame {
             passWord=String.valueOf(tptPassWord.getPassword());
             spaceCenterDisplay=txtSCName.getText();
             
-            n1=new Nave(nombreNave);  
+            
 
             if(orbitAltitude>=304 && orbitAltitude<=528){
+                n1=new Nave(nombreNave);  
                 n1.calcularRadioOrbita();        //Distancia del centro de la tierra a la altura de orbita en kilometros         
                 n1.calcularVelocidad();          //calculo de la velocidad final
                 n1.calcularPerido();             //calculo del periodo
                 n1.calcularTiempo();             //calculo del tiempo que demorara en entrar a orbita con la ecuacion del cohete
                 
-                h1 = new Hora(hora, min, seg, n1.getTiempofinal());
-
+               
                 //Calculos del viaje
                 n1.setVelocidad(0);
+                h1 = new Hora(hora, min, seg, n1.getTiempofinal());
                 for(int t=0;t<=n1.getTiempofinal()+1;t++){
                     if(t<n1.getTiempofinal()){      //mientras estan prendidos los propulsores
                         v0=n1.getVelocidad();
