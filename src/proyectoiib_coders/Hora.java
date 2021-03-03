@@ -7,18 +7,66 @@ package proyectoiib_coders;
 
 /**
  *
- * @author USER
+ * @author alextintin
  */
 public class Hora {
     
-    private int hora=1;
-    private int minutos=1;
-    private int segundos=1;
+    private double hora;
+    private double minutos;
+    private double segundos;
+    private double tiempoLanzamiento;
+
+    public Hora(double hora, double min, double seg, double tiempoLanzamiento) {
+        this.hora=hora;
+        this.minutos=min;
+        this.segundos=seg;
+        this.tiempoLanzamiento=tiempoLanzamiento;
+    }
+    public double getHora() {
+        return hora;
+    }
+    public void setHora(double hora) {
+        this.hora = hora;
+    }
+    public double getMinutos() {
+        return minutos;
+    }
+    public void setMinutos(double minutos) {
+        this.minutos = minutos;
+    }
+    public double getSegundos() {
+        return segundos;
+    }
+    public void setSegundos(double segundos) {
+        this.segundos = segundos;
+    } 
     
-    public boolean verificarHora(){
-        minutos=(int) (((hora-Math.floor(hora)*100)*60)/100);
+    public String establecerHora(){
+        return String.valueOf((int) hora)+":"+String.valueOf((int) minutos)+":"+String.valueOf((int) segundos);
+    }
+    
+    public String verificarHora(){
+        double minFinal, segFinal;
+        tiempoLanzamiento=Math.floor(tiempoLanzamiento);
         
-        return false;//false temporal *eliminar al implemental el codigo*       //return int 
+        segFinal=((tiempoLanzamiento/60)-Math.floor(tiempoLanzamiento/60))*60;
+        minFinal=Math.floor(tiempoLanzamiento/60);
+        
+        segundos+=segFinal;
+        minutos+=minFinal;
+        
+        if(segundos>=60){
+            segundos-=60;
+            minutos++;
+        }
+        if(minutos>=60){
+            minutos-=60;
+            hora++;
+        }
+        if(hora>=24){
+            hora-=24;
+        }
+        return String.valueOf((int) hora)+":"+String.valueOf((int) minutos)+":"+String.valueOf((int) segundos);
     }
     
     

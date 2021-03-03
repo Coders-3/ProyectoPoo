@@ -4,27 +4,32 @@
  * and open the template in the editor.
  */
 package proyectoiib_coders;
-
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
-
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author alext rikardo y david
  */
 public class GUISpaceCenter extends javax.swing.JFrame {
-
     /**
      * Creates new form GUISpaceCenter
      */
-
-    //Declarando la Ventana InformacionDatos
+    Estacion e1;
+    Hora h1;
+    Nave n1;
+    DefaultTableModel modeloTabla; 
     
+    //Declarando la Ventana InformacionDatos
     public GUISpaceCenter() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        modeloTabla = new DefaultTableModel();
+        modeloTabla.addColumn("Velocity");
+        modeloTabla.addColumn("Time");      //agregar columanas con datos una vez implementada la tabla al 100%
+        
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,7 +48,6 @@ public class GUISpaceCenter extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtPropellantMass = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -106,13 +110,11 @@ public class GUISpaceCenter extends javax.swing.JFrame {
 
         jLabel5.setText("Gross Mass:");
 
-        txtPropellantMass.setText("1200000");
-
         jLabel6.setText("120000 [kg]");
 
         jLabel7.setText("1320000 [kg]");
 
-        jLabel17.setText("[kg]");
+        jLabel17.setText("1199812.41 [kg]");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -126,17 +128,19 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(txtPropellantMass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel17))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel6))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel7)))
-                .addContainerGap(43, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel6)
+                                .addGap(46, 46, 46))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                        .addComponent(jLabel7)
+                        .addGap(46, 46, 46))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,7 +152,6 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtPropellantMass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -156,6 +159,15 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                     .addComponent(jLabel7))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
+
+        txtRocketName.setText("SN-10");
+
+        txtOrbitAltitude.setText("400");
+        txtOrbitAltitude.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtOrbitAltitudeKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -201,7 +213,20 @@ public class GUISpaceCenter extends javax.swing.JFrame {
 
         jLabel10.setText("Head Engineer: ");
 
+        txtSCName.setText("Kennedy");
+
+        txtSCAltitude.setText("0");
+        txtSCAltitude.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSCAltitudeKeyReleased(evt);
+            }
+        });
+
+        txtHeadEngineer.setText("Armstrong");
+
         jLabel18.setText("Password:");
+
+        tptPassWord.setText("0000");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -259,6 +284,27 @@ public class GUISpaceCenter extends javax.swing.JFrame {
 
         jLabel13.setText("Year: ");
 
+        txtMonth.setText("03");
+        txtMonth.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtMonthKeyReleased(evt);
+            }
+        });
+
+        txtDay.setText("02");
+        txtDay.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDayKeyReleased(evt);
+            }
+        });
+
+        txtYear.setText("2021");
+        txtYear.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtYearKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -301,6 +347,27 @@ public class GUISpaceCenter extends javax.swing.JFrame {
         jLabel15.setText("Minute: ");
 
         jLabel16.setText("Second: ");
+
+        txtHour.setText("2");
+        txtHour.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtHourKeyReleased(evt);
+            }
+        });
+
+        txtMinute.setText("35");
+        txtMinute.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtMinuteKeyReleased(evt);
+            }
+        });
+
+        txtSecond.setText("20");
+        txtSecond.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSecondKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -407,86 +474,185 @@ public class GUISpaceCenter extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // Programando el boton Save
         InformacionDatos VentanaDatos = new InformacionDatos();
+        ValidacionJefe VentanaValidacion = new ValidacionJefe();
+        ValidacionJefe.tblDatos.setModel(modeloTabla);
+        VentanaValidacion.show();
         VentanaDatos.show();
+        
+        
         //Datos
-        String headEngineer, passWord;
-        double orbitAltitude=400;
-        double spaceCenterAltitude=0;
-        double vf, v0=0;
-        double tf;
+        String headEngineer, passWord, nombreNave, spaceCenterDisplay, dia, mes, año;
+        double v0=0;
         double dryMass=120187.59;
-        double grossMass=1230000;
+        double grossMass=1320000;
         double propMass=grossMass-dryMass;
-        final double G=6.673*Math.pow(10,-11);
-        final double EARTHMASS=5.9729*Math.pow(10,24);
-        final double PI=3.14159;
-        double R, T;
-        double a;
-        String spaceCenterDisplay, spaceCeneterAlititudeDisplay, rocketDisplay, orbitAltitudeDisplay, finalVelDisplay, finalGrossDisplay;
-
+        double a;                                   //variables para la tabla de datos: aceleracion momentum(implementar despues)
+        double hora, min, seg, spaceCenterAltitude, orbitAltitude;
         try{
-          if(orbitAltitude>=304 && orbitAltitude<=528){
-            R=orbitAltitude+6378.137;   //Distancia del centro de la tierra a la altura de orbita en kilometros
-            R*=1000;                   //transformacion de kilometros a metros
-            vf=Math.sqrt((G*EARTHMASS)/R);          //calculo de la velocidad final
-            T=(2*PI*R)/vf;              //calculo del periodo
-            tf=(vf+Math.log(dryMass/grossMass))/9.81; //calculo del tiempo que demorara en entrar a orbita con la ecuacion del cohete
+            //Integer Asignation
+            dia=txtDay.getText();
+            mes=txtMonth.getText();
+            año=txtYear.getText();
+            //Double Asignation
+            spaceCenterAltitude=Double.parseDouble(txtSCAltitude.getText());
+            orbitAltitude=Double.parseDouble(txtOrbitAltitude.getText());
+            hora=Double.parseDouble(txtHour.getText());
+            min=Double.parseDouble(txtMinute.getText());
+            seg=Double.parseDouble(txtSecond.getText());
+            //String Asignation
+            nombreNave=txtRocketName.getText();
+            headEngineer=txtHeadEngineer.getText();
+            passWord=String.valueOf(tptPassWord.getPassword());
+            spaceCenterDisplay=txtSCName.getText();
             
-            
-            //Calculos del viaje
-            vf=0;
-            for(int t=0;t<=tf+1;t++){
-                if(t<tf){      //mientras estan prendidos los propulsores
-                    v0=vf;
-                    grossMass=1320000-(t*(propMass/tf));  //el peso de la nave en cada instante dado una expulsion de combustible uniforme
-                    vf=3200*Math.log((grossMass+((t-1)*(propMass/tf)))/grossMass)-(9.81);
-                    a=vf-v0;
-                }
-                else{           //se apagan los propulsores
-                    vf=3200*Math.log((grossMass+((tf-1)*(propMass/tf)))/grossMass)-(9.81);
-                    a=0;
-                }
-                //tabla para llenar con los datos
+            n1=new Nave(nombreNave);  
+
+            if(orbitAltitude>=304 && orbitAltitude<=528){
+                n1.calcularRadioOrbita();        //Distancia del centro de la tierra a la altura de orbita en kilometros         
+                n1.calcularVelocidad();          //calculo de la velocidad final
+                n1.calcularPerido();             //calculo del periodo
+                n1.calcularTiempo();             //calculo del tiempo que demorara en entrar a orbita con la ecuacion del cohete
                 
+                h1 = new Hora(hora, min, seg, n1.getTiempofinal());
+
+                //Calculos del viaje
+                n1.setVelocidad(0);
+                for(int t=0;t<=n1.getTiempofinal()+1;t++){
+                    if(t<n1.getTiempofinal()){      //mientras estan prendidos los propulsores
+                        v0=n1.getVelocidad();
+                        grossMass=1320000-(t*(propMass/n1.getTiempofinal()));  //el peso de la nave en cada instante dado una expulsion de combustible uniforme
+                        n1.setVelocidad(3200*Math.log((grossMass+((t-1)*(propMass/n1.getTiempofinal())))/grossMass)-(9.81));
+                        a=n1.getVelocidad()-v0;
+                    }
+                    else{           //se apagan los propulsores
+                        n1.setVelocidad(3200*Math.log((grossMass+((n1.getTiempofinal()-1)*(propMass/n1.getTiempofinal())))/grossMass)-(9.81));
+                        a=0;
+                    }
+                    //tabla para llenar con los datos
+                    modeloTabla.addRow(new Object[]{n1.getVelocidad(),t});
+                }
                 
+                //visualizacion en las nuevas ventanas
+                InformacionDatos.lblEngineerDisplay.setText(headEngineer);
+                ValidacionJefe.lblNameValidation.setText(headEngineer);
+                InformacionDatos.lblSpaceCenterDisplay.setText(spaceCenterDisplay);
+                InformacionDatos.lblSpaceAltitudeDisplay.setText(Double.toString(spaceCenterAltitude));
+                InformacionDatos.lblrocketDisplay.setText(nombreNave);
+                InformacionDatos.lblorbitalAltitudeDisplay.setText(Double.toString(orbitAltitude));
+                InformacionDatos.lblfinalVelDisplay.setText(Double.toString(n1.getVelocidad()));
+                InformacionDatos.lblfinalGrossDisplay.setText(Double.toString(grossMass));
+                
+                InformacionDatos.lblDate.setText(mes+"/"+dia+"/"+año);
+                InformacionDatos.lblLaunchTime.setText(h1.establecerHora());
+                InformacionDatos.lblEngineUse.setText(n1.getTiempofinal()+" seconds");
+                InformacionDatos.lblOrbitalTime.setText(h1.verificarHora());
+                InformacionDatos.lblPeriod.setText(n1.getPeriodoOrbita()+" seconds");
             }
-            //visualizacion en la nueva ventana para los datos
-            InformacionDatos.lblSpaceCenterDisplay.setText("");
-            InformacionDatos.lblSpaceAltitudeDisplay.setText("");
-            InformacionDatos.lblrocketDisplay.setText("");
-            InformacionDatos.lblorbitalAltitudeDisplay.setText(Double.toString(orbitAltitude));
-            InformacionDatos.lblfinalVelDisplay.setText(Double.toString(vf));
-            InformacionDatos.lblfinalGrossDisplay.setText(Double.toString(grossMass));
-          }
-          else{
-            JOptionPane.showMessageDialog(rootPane, "Debe ingresar una altitud de orbita entre [304-528] [km]");
-          }
+            else{
+                JOptionPane.showMessageDialog(rootPane, "Debe ingresar una altitud de orbita entre [304-528] [km]");
+            }
         }catch(NumberFormatException nfe){
             JOptionPane.showMessageDialog(rootPane, "Debe ingresar un numero");
-        }
-        
-
-        headEngineer = txtHeadEngineer.getText();
-        passWord = String.valueOf(tptPassWord.getPassword());
-
-        //LLamando al constructor del Jefe
-        JefeEncargado jefe = new JefeEncargado(headEngineer, passWord);
-        
-        //Pasando el nombre del jefe a InformacionDatos
-        
-        //InformacionDatos.lblEngineerDisplay.setText(jefe.getNombre());    //no vale
-        //ValidacionJefe.txtNameValidation.setText(jefe.getNombre());
-        
-        //Mostrar la ventana InformacionDatos
-        
-        
-        dispose();
+        }        
     }//GEN-LAST:event_btnSaveActionPerformed
 
+    private void txtSCAltitudeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSCAltitudeKeyReleased
+        try{
+            if (Double.parseDouble(txtSCAltitude.getText())<0){
+                txtSCAltitude.setText(null);
+            }
+        }catch(NumberFormatException nfe){
+            JOptionPane.showMessageDialog(rootPane, "Enter Space Center altitude over sea level in METERS");
+            txtSCAltitude.setText(null);
+        }
+    }//GEN-LAST:event_txtSCAltitudeKeyReleased
+
+    private void txtOrbitAltitudeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOrbitAltitudeKeyReleased
+        try{
+            if (Double.parseDouble(txtOrbitAltitude.getText())<0){
+                txtOrbitAltitude.setText(null);
+            }
+        }catch(NumberFormatException nfe){
+            JOptionPane.showMessageDialog(rootPane, "Enter orbital altitude over sea level in KILOMETERS");
+            txtOrbitAltitude.setText(null);
+        }
+    }//GEN-LAST:event_txtOrbitAltitudeKeyReleased
+
+    private void txtMonthKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMonthKeyReleased
+        try{
+            if (Double.parseDouble(txtMonth.getText())>12 || Double.parseDouble(txtMonth.getText())<1){
+                JOptionPane.showMessageDialog(rootPane, "Enter month [1-12]");
+                txtMonth.setText(null);
+            }
+        }catch(NumberFormatException nfe){
+            JOptionPane.showMessageDialog(rootPane, "Enter month [1-12]");
+            txtMonth.setText(null);
+        }
+        
+    }//GEN-LAST:event_txtMonthKeyReleased
+
+    private void txtDayKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDayKeyReleased
+        try{
+            if (Double.parseDouble(txtDay.getText())>31 || Double.parseDouble(txtDay.getText())<1){
+                JOptionPane.showMessageDialog(rootPane, "Enter day [1-31]");
+                txtDay.setText(null);
+            }
+        }catch(NumberFormatException nfe){
+            JOptionPane.showMessageDialog(rootPane, "Enter day [1-31]");
+            txtDay.setText(null);
+        }
+    }//GEN-LAST:event_txtDayKeyReleased
+
+    private void txtYearKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtYearKeyReleased
+        try{
+            if (Double.parseDouble(txtYear.getText())<1){
+                JOptionPane.showMessageDialog(rootPane, "Enter a valid year");
+                txtYear.setText(null);
+            }
+        }catch(NumberFormatException nfe){
+            JOptionPane.showMessageDialog(rootPane, "Enter  valid year");
+            txtYear.setText(null);
+        }
+    }//GEN-LAST:event_txtYearKeyReleased
+
+    private void txtHourKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHourKeyReleased
+        try{
+            if (Double.parseDouble(txtHour.getText())<0 || Double.parseDouble(txtHour.getText())>23){
+                JOptionPane.showMessageDialog(rootPane, "Enter an hour [0-23]");
+                txtHour.setText(null);
+            }
+        }catch(NumberFormatException nfe){
+            JOptionPane.showMessageDialog(rootPane, "Enter an hour [0-23]");
+            txtHour.setText(null);
+        }
+    }//GEN-LAST:event_txtHourKeyReleased
+
+    private void txtMinuteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMinuteKeyReleased
+        try{
+            if (Double.parseDouble(txtMinute.getText())<0 || Double.parseDouble(txtMinute.getText())>59){
+                JOptionPane.showMessageDialog(rootPane, "Enter a minute [0-59]");
+                txtMinute.setText(null);
+            }
+        }catch(NumberFormatException nfe){
+            JOptionPane.showMessageDialog(rootPane, "Enter a minute [0-59]");
+            txtMinute.setText(null);
+        }
+    }//GEN-LAST:event_txtMinuteKeyReleased
+
+    private void txtSecondKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSecondKeyReleased
+        try{
+            if (Double.parseDouble(txtSecond.getText())<0 || Double.parseDouble(txtSecond.getText())>59){
+                JOptionPane.showMessageDialog(rootPane, "Enter a second [0-59]");
+                txtSecond.setText(null);
+            }
+        }catch(NumberFormatException nfe){
+            JOptionPane.showMessageDialog(rootPane, "Enter a second [0-59]");
+            txtSecond.setText(null);
+        }
+    }//GEN-LAST:event_txtSecondKeyReleased
 
     /**
      * @param args the command line arguments
@@ -561,7 +727,6 @@ public class GUISpaceCenter extends javax.swing.JFrame {
     private javax.swing.JTextField txtMinute;
     private javax.swing.JTextField txtMonth;
     private javax.swing.JTextField txtOrbitAltitude;
-    private javax.swing.JTextField txtPropellantMass;
     private javax.swing.JTextField txtRocketName;
     private javax.swing.JTextField txtSCAltitude;
     private javax.swing.JTextField txtSCName;

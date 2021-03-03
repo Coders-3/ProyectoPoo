@@ -11,18 +11,19 @@ package proyectoiib_coders;
  */
 public class Estacion extends AgenciaAeronautica{
     
-    private double Altitud;
+    public double altitud;
 
-    public Estacion(String name) {
+    public Estacion(String name, double altitud) {
         super(name);
+        this.altitud=altitud;
     }
 
     public double getAltitud() {
-        return Altitud;
+        return altitud;
     }
 
     public void setAltitud(double Altitud) {
-        this.Altitud = Altitud;
+        this.altitud = Altitud;
     }
 
     public boolean verificarAltitud(){

@@ -178,21 +178,25 @@
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="txtPropellantMass" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabel17" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace pref="30" max="32767" attributes="0"/>
                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="43" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -207,7 +211,6 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtPropellantMass" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -236,11 +239,6 @@
                 <Property name="text" type="java.lang.String" value="Gross Mass:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtPropellantMass">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="1200000"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
                 <Property name="text" type="java.lang.String" value="120000 [kg]"/>
@@ -253,14 +251,23 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel17">
               <Properties>
-                <Property name="text" type="java.lang.String" value="[kg]"/>
+                <Property name="text" type="java.lang.String" value="1199812.41 [kg]"/>
               </Properties>
             </Component>
           </SubComponents>
         </Container>
         <Component class="javax.swing.JTextField" name="txtRocketName">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="SN-10"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtOrbitAltitude">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="400"/>
+          </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtOrbitAltitudeKeyReleased"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -349,10 +356,22 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtSCName">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Kennedy"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtSCAltitude">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSCAltitudeKeyReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtHeadEngineer">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Armstrong"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel18">
           <Properties>
@@ -360,6 +379,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="tptPassWord">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0000"/>
+          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
           </AuxValues>
@@ -470,10 +492,28 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtMonth">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="03"/>
+              </Properties>
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtMonthKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtDay">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="02"/>
+              </Properties>
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDayKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtYear">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="2021"/>
+              </Properties>
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtYearKeyReleased"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -550,10 +590,28 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtHour">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="2"/>
+              </Properties>
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtHourKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtMinute">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="35"/>
+              </Properties>
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtMinuteKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtSecond">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="20"/>
+              </Properties>
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSecondKeyReleased"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

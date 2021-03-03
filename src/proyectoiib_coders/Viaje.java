@@ -15,6 +15,5 @@ public interface Viaje {
     public void calcularVelocidad();
     public void calcularPerido();
     public void calcularTiempo();
-    
-    
+        
 }
