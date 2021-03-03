@@ -7,6 +7,7 @@ package proyectoiib_coders;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.*;
 /**
  *
  * @author alext rikardo y david
@@ -14,7 +15,9 @@ import javax.swing.table.DefaultTableModel;
 public class GUISpaceCenter extends javax.swing.JFrame {
     
     //Creando la ventana de validacion
-    ValidateKey wKey = new ValidateKey(this, true);
+    //ValidateKey wKey = new ValidateKey(this, true);
+    InformacionDatos VentanaDatos = new InformacionDatos(this, true);
+    
     
     
     Estacion e1;
@@ -481,12 +484,13 @@ public class GUISpaceCenter extends javax.swing.JFrame {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         
         // Programando el boton Save
-        InformacionDatos VentanaDatos = new InformacionDatos();
-        ValidacionJefe VentanaValidacion = new ValidacionJefe();
-        ValidacionJefe.tblDatos.setModel(modeloTabla);
+        //InformacionDatos VentanaDatos = new InformacionDatos();
+        
+        //ValidacionJefe VentanaValidacion = new ValidacionJefe();
+        //ValidacionJefe.tblDatos.setModel(modeloTabla);
         
         //Mostrando las ventanas
-        VentanaValidacion.show();
+        //VentanaValidacion.show();
         //wKey.VentanaDatos.show();
         VentanaDatos.show();
         System.out.println("Mostrando la ventana datos");
@@ -523,7 +527,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
             spaceCenterDisplay=txtSCName.getText();
             
             //Creando al jefe
-            wKey.jefe = new JefeEncargado(headEngineer, passWord);
+            //wKey.jefe = new JefeEncargado(headEngineer, passWord);
             
 
             if(orbitAltitude>=304 && orbitAltitude<=528){
@@ -553,20 +557,20 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                 }
                 
                 //visualizacion en las nuevas ventanas
-                InformacionDatos.lblEngineerDisplay.setText(headEngineer);
+                VentanaDatos.lblEngineerDisplay.setText(headEngineer);
                 ValidacionJefe.lblNameValidation.setText(headEngineer);
-                InformacionDatos.lblSpaceCenterDisplay.setText(spaceCenterDisplay);
-                InformacionDatos.lblSpaceAltitudeDisplay.setText(Double.toString(spaceCenterAltitude));
-                InformacionDatos.lblrocketDisplay.setText(nombreNave);
-                InformacionDatos.lblorbitalAltitudeDisplay.setText(Double.toString(orbitAltitude));
-                InformacionDatos.lblfinalVelDisplay.setText(Double.toString(n1.getVelocidad()));
-                InformacionDatos.lblfinalGrossDisplay.setText(Double.toString(grossMass));
+                VentanaDatos.lblSpaceCenterDisplay.setText(spaceCenterDisplay);
+                VentanaDatos.lblSpaceAltitudeDisplay.setText(Double.toString(spaceCenterAltitude));
+                VentanaDatos.lblrocketDisplay.setText(nombreNave);
+                VentanaDatos.lblorbitalAltitudeDisplay.setText(Double.toString(orbitAltitude));
+                VentanaDatos.lblfinalVelDisplay.setText(Double.toString(n1.getVelocidad()));
+                VentanaDatos.lblfinalGrossDisplay.setText(Double.toString(grossMass));
                 
-                InformacionDatos.lblDate.setText(mes+"/"+dia+"/"+año);
-                InformacionDatos.lblLaunchTime.setText(h1.establecerHora());
-                InformacionDatos.lblEngineUse.setText(n1.getTiempofinal()+" seconds");
-                InformacionDatos.lblOrbitalTime.setText(h1.verificarHora());
-                InformacionDatos.lblPeriod.setText(n1.getPeriodoOrbita()+" seconds");
+                VentanaDatos.lblDate.setText(mes+"/"+dia+"/"+año);
+                VentanaDatos.lblLaunchTime.setText(h1.establecerHora());
+                VentanaDatos.lblEngineUse.setText(n1.getTiempofinal()+" seconds");
+                VentanaDatos.lblOrbitalTime.setText(h1.verificarHora());
+                VentanaDatos.lblPeriod.setText(n1.getPeriodoOrbita()+" seconds");
             }
             else{
                 JOptionPane.showMessageDialog(rootPane, "Debe ingresar una altitud de orbita entre [304-528] [km]");

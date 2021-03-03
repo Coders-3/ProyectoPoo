@@ -4,17 +4,18 @@
  * and open the template in the editor.
  */
 package proyectoiib_coders;
-
+import javax.swing.*;
 /**
  *
  * @author Ricardo
  */
-public class ValidateKey extends javax.swing.JDialog {
+public class ValidateKey extends JDialog {
 
     //Declaro el objeto JefeEncargado
     JefeEncargado jefe;
+    ValidacionJefe ventanaDatos = new ValidacionJefe(this, true);
     
-    public ValidateKey(java.awt.Frame parent, boolean modal) {
+    public ValidateKey(JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(parent);
@@ -98,6 +99,7 @@ public class ValidateKey extends javax.swing.JDialog {
 
     private void btnAceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptActionPerformed
         //Programando el boton Aceptar
+        ventanaDatos.setVisible(true);
     }//GEN-LAST:event_btnAceptActionPerformed
 
     /**
@@ -130,7 +132,7 @@ public class ValidateKey extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ValidateKey dialog = new ValidateKey(new javax.swing.JFrame(), true);
+                ValidateKey dialog = new ValidateKey(new JDialog(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

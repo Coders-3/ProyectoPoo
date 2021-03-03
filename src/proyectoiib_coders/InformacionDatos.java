@@ -4,21 +4,24 @@
  * and open the template in the editor.
  */
 package proyectoiib_coders;
+import javax.swing.*;
 
 /**
  *
  * @author Ricardo
  */
-public class InformacionDatos extends javax.swing.JFrame{
+public class InformacionDatos extends javax.swing.JDialog{
 
     //Probando Algo
     //GUISpaceCenter wSpace = new GUISpaceCenter();
+    ValidateKey wKey = new ValidateKey(this, true);
     
 
     
-    public InformacionDatos() {
+    public InformacionDatos(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
-        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(parent);
     }
 
     /**
@@ -61,7 +64,7 @@ public class InformacionDatos extends javax.swing.JFrame{
         jLabel4 = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Data Information");
 
         btnViewData.setText("View Data");
@@ -302,6 +305,9 @@ public class InformacionDatos extends javax.swing.JFrame{
         //Llamar a la ventana Validacion Jefe
         //ValidacionJefe v3 = new ValidacionJefe();
         //v3.show();
+        //wKey.setVisible(true);
+        //ValidateKey wKey = new ValidateKey(this, true);
+        wKey.setVisible(true);
         
         
         
@@ -310,6 +316,7 @@ public class InformacionDatos extends javax.swing.JFrame{
     private void btnCloseInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseInformationActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
+        
     }//GEN-LAST:event_btnCloseInformationActionPerformed
 
     /**
@@ -342,10 +349,17 @@ public class InformacionDatos extends javax.swing.JFrame{
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InformacionDatos().setVisible(true);
+                InformacionDatos dialog = new InformacionDatos(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
