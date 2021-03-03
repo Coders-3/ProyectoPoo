@@ -15,8 +15,6 @@ public class GUISpaceCenter extends javax.swing.JFrame {
     
     //Creando la ventana de validacion
     ValidateKey wKey = new ValidateKey(this, true);
-    //InformacionDatos VentanaDatos = new InformacionDatos();
-    //ValidacionJefe VentanaValidacion = new ValidacionJefe();
     
     
     Estacion e1;
@@ -483,14 +481,16 @@ public class GUISpaceCenter extends javax.swing.JFrame {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         
         // Programando el boton Save
-        //InformacionDatos VentanaDatos = new InformacionDatos();
-        //ValidacionJefe VentanaValidacion = new ValidacionJefe();
+        InformacionDatos VentanaDatos = new InformacionDatos();
+        ValidacionJefe VentanaValidacion = new ValidacionJefe();
         ValidacionJefe.tblDatos.setModel(modeloTabla);
         
         //Mostrando las ventanas
-        //VentanaValidacion.show();
-        wKey.VentanaDatos.show();
+        VentanaValidacion.show();
+        //wKey.VentanaDatos.show();
+        VentanaDatos.show();
         System.out.println("Mostrando la ventana datos");
+        
         
         
         //Datos
@@ -501,17 +501,21 @@ public class GUISpaceCenter extends javax.swing.JFrame {
         double propMass=grossMass-dryMass;
         double a;                                   //variables para la tabla de datos: aceleracion momentum(implementar despues)
         double hora, min, seg, spaceCenterAltitude, orbitAltitude;
+        
+        
         try{
             //Integer Asignation
             dia=txtDay.getText();
             mes=txtMonth.getText();
             año=txtYear.getText();
+            
             //Double Asignation
             spaceCenterAltitude=Double.parseDouble(txtSCAltitude.getText());
             orbitAltitude=Double.parseDouble(txtOrbitAltitude.getText());
             hora=Double.parseDouble(txtHour.getText());
             min=Double.parseDouble(txtMinute.getText());
             seg=Double.parseDouble(txtSecond.getText());
+            
             //String Asignation
             nombreNave=txtRocketName.getText();
             headEngineer=txtHeadEngineer.getText();

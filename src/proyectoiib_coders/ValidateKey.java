@@ -13,8 +13,6 @@ public class ValidateKey extends javax.swing.JDialog {
 
     //Declaro el objeto JefeEncargado
     JefeEncargado jefe;
-    InformacionDatos VentanaDatos = new InformacionDatos();
-    ValidacionJefe VentanaValidacion = new ValidacionJefe();
     
     public ValidateKey(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -100,9 +98,6 @@ public class ValidateKey extends javax.swing.JDialog {
 
     private void btnAceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptActionPerformed
         //Programando el boton Aceptar
-        //jefe.mensaje();
-        VentanaValidacion.setVisible(true);
-        System.out.println("mostrando la ventana de tabla");
     }//GEN-LAST:event_btnAceptActionPerformed
 
     /**

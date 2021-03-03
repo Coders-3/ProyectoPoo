@@ -9,11 +9,12 @@ package proyectoiib_coders;
  *
  * @author Ricardo
  */
-public class InformacionDatos extends javax.swing.JFrame {
+public class InformacionDatos extends javax.swing.JFrame{
 
     //Probando Algo
     //GUISpaceCenter wSpace = new GUISpaceCenter();
     
+
     
     public InformacionDatos() {
         initComponents();
@@ -298,10 +299,12 @@ public class InformacionDatos extends javax.swing.JFrame {
 
     private void btnViewDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDataActionPerformed
         //Bonton para acceder a la tabla de valores
-        //GUISpaceCenter.wKey.show();
-        //GUISpaceCenter.wKey.setVisible(true);
-        //wSpace.wKey.setVisible(true);
-        //System.out.println("mostrando la ventana de validacion");
+        //Llamar a la ventana Validacion Jefe
+        //ValidacionJefe v3 = new ValidacionJefe();
+        //v3.show();
+        
+        
+        
     }//GEN-LAST:event_btnViewDataActionPerformed
 
     private void btnCloseInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseInformationActionPerformed
@@ -313,6 +316,9 @@ public class InformacionDatos extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
+        
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
