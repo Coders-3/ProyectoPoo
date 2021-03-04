@@ -16,13 +16,13 @@ public class GUISpaceCenter extends javax.swing.JFrame {
     
     //Creando la ventana de validacion
     InformacionDatos VentanaDatos = new InformacionDatos(this, true);
-    
+
     
     
     Estacion e1;
     Hora h1;
     Nave n1;
-    DefaultTableModel modeloTabla; 
+    DefaultTableModel modeloTabla;
     
     //Declarando la Ventana InformacionDatos
     public GUISpaceCenter() {
@@ -537,19 +537,21 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                 n1.calcularPerido();             //calculo del periodo
                 n1.calcularTiempo();             //calculo del tiempo que demorara en entrar a orbita con la ecuacion del cohete
                 
+               //Compartiendo datos para busqueda
+               VentanaDatos.wKey.VentanaValidacion.nave = n1;
                
                 //Calculos del viaje
                 n1.setVelocidad(0);
-                h1 = new Hora(hora, min, seg, n1.getTiempofinal());
-                for(int t=0;t<=n1.getTiempofinal()+1;t++){
-                    if(t<n1.getTiempofinal()){      //mientras estan prendidos los propulsores
+                h1 = new Hora(hora, min, seg, n1.getTiempoFinal());
+                for(int t=0;t<=n1.getTiempoFinal()+1;t++){
+                    if(t<n1.getTiempoFinal()){      //mientras estan prendidos los propulsores
                         v0=n1.getVelocidad();
-                        grossMass=1320000-(t*(propMass/n1.getTiempofinal()));  //el peso de la nave en cada instante dado una expulsion de combustible uniforme
-                        n1.setVelocidad(3200*Math.log((grossMass+((t-1)*(propMass/n1.getTiempofinal())))/grossMass)-(9.81));
+                        grossMass=1320000-(t*(propMass/n1.getTiempoFinal()));  //el peso de la nave en cada instante dado una expulsion de combustible uniforme
+                        n1.setVelocidad(3200*Math.log((grossMass+((t-1)*(propMass/n1.getTiempoFinal())))/grossMass)-(9.81));
                         a=n1.getVelocidad()-v0;
                     }
                     else{           //se apagan los propulsores
-                        n1.setVelocidad(3200*Math.log((grossMass+((n1.getTiempofinal()-1)*(propMass/n1.getTiempofinal())))/grossMass)-(9.81));
+                        n1.setVelocidad(3200*Math.log((grossMass+((n1.getTiempoFinal()-1)*(propMass/n1.getTiempoFinal())))/grossMass)-(9.81));
                         a=0;
                     }
                     //tabla para llenar con los datos
@@ -570,7 +572,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                 
                 VentanaDatos.lblDate.setText(mes+"/"+dia+"/"+año);
                 VentanaDatos.lblLaunchTime.setText(h1.establecerHora());
-                VentanaDatos.lblEngineUse.setText(n1.getTiempofinal()+" seconds");
+                VentanaDatos.lblEngineUse.setText(n1.getTiempoFinal()+" seconds");
                 VentanaDatos.lblOrbitalTime.setText(h1.verificarHora());
                 VentanaDatos.lblPeriod.setText(n1.getPeriodoOrbita()+" seconds");
             }

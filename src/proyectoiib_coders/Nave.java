@@ -11,7 +11,7 @@ package proyectoiib_coders;
  */
 public class Nave extends AgenciaAeronautica implements Viaje {
     
-    private double tiempofinal;
+    private double tiempoFinal;
     private Hora horaDespegue;
     private Hora horaLlegada;
     private double radioOrbita;
@@ -21,12 +21,19 @@ public class Nave extends AgenciaAeronautica implements Viaje {
     public Nave(String name) {
         super(name);
     }
-
-    public double getTiempofinal() {
-        return tiempofinal;
+    public Nave (String name, double tiempoFinal, double radioOrbita, double velocidad, double periodoOrbita){
+        super(name);
+        this.tiempoFinal= tiempoFinal;
+        this.radioOrbita=radioOrbita;
+        this.velocidad=velocidad;
+        this.periodoOrbita=periodoOrbita;
     }
-    public void setTiempofinal(double tiempofinal) {
-        this.tiempofinal = tiempofinal;
+
+    public double getTiempoFinal() {
+        return tiempoFinal;
+    }
+    public void setTiempoFinal(double tiempoFinal) {
+        this.tiempoFinal = tiempoFinal;
     }
     public Hora getHoraDespegue() {
         return horaDespegue;
@@ -81,6 +88,6 @@ public class Nave extends AgenciaAeronautica implements Viaje {
     public void calcularTiempo() {
         double dryMass=120187.59;
         double grossMass=1230000;
-        tiempofinal=(velocidad+Math.log(dryMass/grossMass))/9.81;
+        tiempoFinal=(velocidad+Math.log(dryMass/grossMass))/9.81;
     }
 }
