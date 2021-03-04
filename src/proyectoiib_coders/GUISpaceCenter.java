@@ -488,7 +488,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
         
         //ValidacionJefe VentanaValidacion = new ValidacionJefe();
         //ValidacionJefe.tblDatos.setModel(modeloTabla);
-        
+        VentanaDatos.wKey.VentanaValidacion.tblDatos.setModel(modeloTabla);
         //Mostrando las ventanas
         //VentanaValidacion.show();
         //wKey.VentanaDatos.show();
@@ -558,10 +558,9 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                 
                 //visualizacion en las nuevas ventanas
                 VentanaDatos.lblEngineerDisplay.setText(headEngineer);
-                //VentanaDatos.lblEngineerDisplay.setText(VentanaDatos.wKey.jefe.getNombre());
                 System.out.println("mostrando el nombre");
-                ValidacionJefe.lblNameValidation.setText(headEngineer);
-                //ValidacionJefe.lblNameValidation.setText(VentanaDatos.wKey.jefe.getNombre());
+                VentanaDatos.wKey.VentanaValidacion.lblNameValidation.setText(headEngineer);
+                VentanaDatos.wKey.lblValidateName.setText(headEngineer);
                 VentanaDatos.lblSpaceCenterDisplay.setText(spaceCenterDisplay);
                 VentanaDatos.lblSpaceAltitudeDisplay.setText(Double.toString(spaceCenterAltitude));
                 VentanaDatos.lblrocketDisplay.setText(nombreNave);

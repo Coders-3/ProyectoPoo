@@ -171,7 +171,7 @@ public class ValidateKey extends JDialog {
     private javax.swing.JButton btnAcept;
     private javax.swing.JButton btnCancel;
     private javax.swing.JLabel lblName2;
-    private javax.swing.JLabel lblValidateName;
+    public javax.swing.JLabel lblValidateName;
     private javax.swing.JLabel lblValidatePassword;
     private javax.swing.JPasswordField txtValidateKey;
     // End of variables declaration//GEN-END:variables

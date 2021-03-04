@@ -384,17 +384,17 @@ public class InformacionDatos extends javax.swing.JDialog{
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    public static javax.swing.JLabel lblDate;
-    public static javax.swing.JLabel lblEngineUse;
-    public static javax.swing.JLabel lblEngineerDisplay;
-    public static javax.swing.JLabel lblLaunchTime;
-    public static javax.swing.JLabel lblOrbitalTime;
-    public static javax.swing.JLabel lblPeriod;
-    public static javax.swing.JLabel lblSpaceAltitudeDisplay;
-    public static javax.swing.JLabel lblSpaceCenterDisplay;
-    public static javax.swing.JLabel lblfinalGrossDisplay;
-    public static javax.swing.JLabel lblfinalVelDisplay;
-    public static javax.swing.JLabel lblorbitalAltitudeDisplay;
-    public static javax.swing.JLabel lblrocketDisplay;
+    public javax.swing.JLabel lblDate;
+    public javax.swing.JLabel lblEngineUse;
+    public javax.swing.JLabel lblEngineerDisplay;
+    public javax.swing.JLabel lblLaunchTime;
+    public javax.swing.JLabel lblOrbitalTime;
+    public javax.swing.JLabel lblPeriod;
+    public javax.swing.JLabel lblSpaceAltitudeDisplay;
+    public javax.swing.JLabel lblSpaceCenterDisplay;
+    public javax.swing.JLabel lblfinalGrossDisplay;
+    public javax.swing.JLabel lblfinalVelDisplay;
+    public javax.swing.JLabel lblorbitalAltitudeDisplay;
+    public javax.swing.JLabel lblrocketDisplay;
     // End of variables declaration//GEN-END:variables
 }

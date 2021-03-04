@@ -153,8 +153,8 @@ public class ValidacionJefe extends JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblHead;
-    public static javax.swing.JLabel lblNameValidation;
+    public javax.swing.JLabel lblNameValidation;
     private javax.swing.JPanel panelDatos;
-    public static javax.swing.JTable tblDatos;
+    public javax.swing.JTable tblDatos;
     // End of variables declaration//GEN-END:variables
 }
