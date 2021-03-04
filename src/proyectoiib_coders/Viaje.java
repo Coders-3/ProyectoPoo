@@ -12,8 +12,9 @@ package proyectoiib_coders;
 public interface Viaje {
     
     public void calcularRadioOrbita();
-    public void calcularVelocidad();
+    public void calcularVelocidadFinal();
     public void calcularPerido();
-    public void calcularTiempo();
+    public void calcularTiempoFinal();
+    public void calcularVelocidad(int t);
         
 }

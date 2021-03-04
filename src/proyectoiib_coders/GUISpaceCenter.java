@@ -533,9 +533,9 @@ public class GUISpaceCenter extends javax.swing.JFrame {
             if(orbitAltitude>=304 && orbitAltitude<=528){
                 n1=new Nave(nombreNave);  
                 n1.calcularRadioOrbita();        //Distancia del centro de la tierra a la altura de orbita en kilometros         
-                n1.calcularVelocidad();          //calculo de la velocidad final
+                n1.calcularVelocidadFinal();          //calculo de la velocidad final
                 n1.calcularPerido();             //calculo del periodo
-                n1.calcularTiempo();             //calculo del tiempo que demorara en entrar a orbita con la ecuacion del cohete
+                n1.calcularTiempoFinal();             //calculo del tiempo que demorara en entrar a orbita con la ecuacion del cohete
                 
                //Compartiendo datos para busqueda
                VentanaDatos.wKey.VentanaValidacion.nave = n1;
@@ -544,16 +544,9 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                 n1.setVelocidad(0);
                 h1 = new Hora(hora, min, seg, n1.getTiempoFinal());
                 for(int t=0;t<=n1.getTiempoFinal()+1;t++){
-                    if(t<n1.getTiempoFinal()){      //mientras estan prendidos los propulsores
-                        v0=n1.getVelocidad();
-                        grossMass=1320000-(t*(propMass/n1.getTiempoFinal()));  //el peso de la nave en cada instante dado una expulsion de combustible uniforme
-                        n1.setVelocidad(3200*Math.log((grossMass+((t-1)*(propMass/n1.getTiempoFinal())))/grossMass)-(9.81));
-                        a=n1.getVelocidad()-v0;
-                    }
-                    else{           //se apagan los propulsores
-                        n1.setVelocidad(3200*Math.log((grossMass+((n1.getTiempoFinal()-1)*(propMass/n1.getTiempoFinal())))/grossMass)-(9.81));
-                        a=0;
-                    }
+                    
+                    n1.calcularVelocidad(t);
+
                     //tabla para llenar con los datos
                     modeloTabla.addRow(new Object[]{n1.getVelocidad(),t});
                 }
