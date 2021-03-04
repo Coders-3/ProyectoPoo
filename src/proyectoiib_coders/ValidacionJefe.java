@@ -7,6 +7,7 @@ package proyectoiib_coders;
 
 import javax.swing.JOptionPane;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,11 +16,16 @@ import javax.swing.*;
 public class ValidacionJefe extends JDialog {
     
     Busqueda ventanaBusqueda = new Busqueda(this, false);
-    Nave nave;
+    Nave nave;        
+    DefaultTableModel modeloTabla2;
     public ValidacionJefe(JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(parent);
+        modeloTabla2 = new DefaultTableModel();
+        modeloTabla2.addColumn("Velocity");
+        modeloTabla2.addColumn("Time");
+
         //panelDatos.setVisible(true);            //visualizar datos
     }
     
@@ -111,15 +117,28 @@ public class ValidacionJefe extends JDialog {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Busqueda"));
 
         btnBuscar.setText("Buscar");
+        btnBuscar.setEnabled(false);
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
             }
         });
 
+        btgBuscar.add(rbtPorTiempo);
         rbtPorTiempo.setText("Por Tiempo");
+        rbtPorTiempo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtPorTiempoActionPerformed(evt);
+            }
+        });
 
+        btgBuscar.add(rbtPorVelocidad);
         rbtPorVelocidad.setText("Por Velocidad");
+        rbtPorVelocidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtPorVelocidadActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -131,18 +150,17 @@ public class ValidacionJefe extends JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(rbtPorVelocidad)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBuscar)
-                .addGap(26, 26, 26))
+                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(19, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(rbtPorTiempo)
-                        .addComponent(rbtPorVelocidad))
-                    .addComponent(btnBuscar))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbtPorTiempo)
+                    .addComponent(rbtPorVelocidad)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22))
         );
 
@@ -178,32 +196,80 @@ public class ValidacionJefe extends JDialog {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
         int a;
+        String tiempo="";
+        String v="";
+        int timeF = (int)Math.ceil(nave.getTiempoFinal());
+        
+        //Referenciar a la tabla de "Busqueda"
+        ventanaBusqueda.tblDatosBusqueda.setModel(modeloTabla2);
+        
         if(rbtPorTiempo.isSelected()){
             try{
-            a=Integer.parseInt(JOptionPane.showInputDialog("Ingrese el tiempo que desee, rango disponible [0-"+Math.ceil(nave.getTiempoFinal())+"]"));
+            a=Integer.parseInt(JOptionPane.showInputDialog("Ingrese el tiempo que desee, rango disponible [0-"+timeF+"]"));
+            //Se calcula la velocidad al tiempo ingresado
+            if(a>=0&&a<=timeF){
+                nave.calcularVelocidad(a);
+                v=Double.toString(nave.getVelocidad());//Se transforma en String y se almacena
+                tiempo= Integer.toString(a);
+                modeloTabla2.addRow(new Object[]{v,tiempo});
+                ventanaBusqueda.show();            
+                
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Tiempo Fuera de rango");
+            }
+            
+
             
 
             }catch(NumberFormatException nfe){
-            JOptionPane.showMessageDialog(rootPane, "Debe ingresar un numero");
+            JOptionPane.showMessageDialog(rootPane, "Debe ingresar un numero entero");
+        }   
         }
-            if(rbtPorVelocidad.isSelected()){
-                /*Object[] options = new Object[] {};
-                JOptionPane jop = new JOptionPane("Please Select",
-                                        JOptionPane.QUESTION_MESSAGE,
-                                        JOptionPane.DEFAULT_OPTION,
-                                        null,options, null);
-                JDialog diag = new JDialog();
-                diag.getContentPane().add(jop);
-                diag.pack();
-                diag.setVisible(true);*/
-            }
+        if(rbtPorVelocidad.isSelected()){
 
+            //creando el arreglo
+            String[] velocidad= new String[timeF+1];
+            nave.setVelocidad(0);
+
+            for (int i = 0; i < timeF+1; i++) {
+                nave.calcularVelocidad(i);
+                velocidad[i]=Double.toString(nave.getVelocidad());//Se transforma en String y se almacena
+            } 
             
-        }
-        ventanaBusqueda.show();
+            //Agregamos un ComboBox para los datos
+            JComboBox cmb1 = new JComboBox(velocidad);
+            cmb1.setEditable(true);
+            JOptionPane.showMessageDialog(null, cmb1, "Que velocidad desea buscar", JOptionPane.QUESTION_MESSAGE);
+            v=cmb1.getSelectedItem().toString();
+            
+            for (int i = 0; i < timeF+1; i++) {
+                nave.calcularVelocidad(i);
+                velocidad[i]=Double.toString(nave.getVelocidad());//Se transforma en String y se almacena
+                if(velocidad[i].equals(v)){
+                    tiempo=Integer.toString(i);
+                }
+            }
+            modeloTabla2.addRow(new Object[]{v,tiempo});
+            ventanaBusqueda.show();
+            }
+        
+
         
         
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void rbtPorVelocidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtPorVelocidadActionPerformed
+        // TODO add your handling code here:
+        
+        btnBuscar.setEnabled(true);
+    }//GEN-LAST:event_rbtPorVelocidadActionPerformed
+
+    private void rbtPorTiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtPorTiempoActionPerformed
+        // TODO add your handling code here:
+        
+        btnBuscar.setEnabled(true);
+    }//GEN-LAST:event_rbtPorTiempoActionPerformed
 
    
     /**

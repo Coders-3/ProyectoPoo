@@ -110,8 +110,7 @@ public class Nave extends AgenciaAeronautica implements Viaje {
 
     @Override
     public void calcularTiempoFinal() {
-        double dryMass=120187.59;
-        double grossMass=1230000;
+
         tiempoFinal=(velocidad+Math.log(dryMass/grossMass))/9.81;
     }
     
