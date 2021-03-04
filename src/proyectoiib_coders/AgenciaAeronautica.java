@@ -31,9 +31,9 @@ public class AgenciaAeronautica extends GUISpaceCenter{
     }
     
     //primer constructor
-    public AgenciaAeronautica(String name){
+    public AgenciaAeronautica(String nombre){
         super();
-        this.nombre = name;
+        this.nombre = nombre;
     }
     
     

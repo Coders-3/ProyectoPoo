@@ -16,6 +16,7 @@ public class InformacionDatos extends javax.swing.JDialog{
     //GUISpaceCenter wSpace = new GUISpaceCenter();
     ValidateKey wKey = new ValidateKey(this, true);
     
+    
 
     
     public InformacionDatos(java.awt.Frame parent, boolean modal) {
@@ -64,7 +65,7 @@ public class InformacionDatos extends javax.swing.JDialog{
         jLabel4 = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Data Information");
 
         btnViewData.setText("View Data");

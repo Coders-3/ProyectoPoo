@@ -12,13 +12,13 @@ import javax.swing.*;
  *
  * @author Ricardo
  */
-public class ValidacionJefe extends javax.swing.JDialog {
+public class ValidacionJefe extends JDialog {
 
     public ValidacionJefe(JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(parent);
-        panelDatos.setVisible(true);            //visualizar datos
+        //panelDatos.setVisible(true);            //visualizar datos
     }
     
 //    public ValidacionJefe() {
@@ -34,36 +34,16 @@ public class ValidacionJefe extends javax.swing.JDialog {
 
         lblHead = new javax.swing.JLabel();
         lblNameValidation = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        btnCancel = new javax.swing.JButton();
-        btnAcceptValidation = new javax.swing.JButton();
-        tptValidationPassWord = new javax.swing.JPasswordField();
         panelDatos = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblDatos = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Validation");
 
         lblHead.setText("Head Engineer:");
 
         lblNameValidation.setText("Name");
-
-        jLabel3.setText("Password:");
-
-        btnCancel.setText("Cancel");
-        btnCancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelActionPerformed(evt);
-            }
-        });
-
-        btnAcceptValidation.setText("Accept");
-        btnAcceptValidation.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAcceptValidationActionPerformed(evt);
-            }
-        });
 
         panelDatos.setBorder(javax.swing.BorderFactory.createTitledBorder("Data"));
 
@@ -86,7 +66,7 @@ public class ValidacionJefe extends javax.swing.JDialog {
             panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDatosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelDatosLayout.setVerticalGroup(
@@ -106,38 +86,20 @@ public class ValidacionJefe extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblHead)
-                                    .addComponent(jLabel3))
-                                .addGap(40, 40, 40)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tptValidationPassWord, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblNameValidation)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnCancel)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnAcceptValidation)))
-                        .addGap(0, 527, Short.MAX_VALUE)))
+                        .addComponent(lblHead)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblNameValidation)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHead)
                     .addComponent(lblNameValidation))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(tptValidationPassWord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancel)
-                    .addComponent(btnAcceptValidation))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(49, 49, 49)
                 .addComponent(panelDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -146,28 +108,6 @@ public class ValidacionJefe extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
    
-    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        // Boton Cancel (para salir de la validacion)
-        this.setVisible(false);
-    }//GEN-LAST:event_btnCancelActionPerformed
-
-    private void btnAcceptValidationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptValidationActionPerformed
-        // Boton Accept (para validar la contrasenia)
-        String passWordValidation;
-        passWordValidation = String.valueOf(tptValidationPassWord.getPassword());
-        
-        //Validando Password
-        /*
-        if(jefe.validateKey(passWordValidation)){
-            //Mostrar ventana TablaDatos
-            VentanaTabla.setVisible(true);
-            this.setVisible(false);
-        }else{
-            JOptionPane.showMessageDialog(null, "Password Incorrect", passWordValidation, ERROR);
-        }
-        */
-    }//GEN-LAST:event_btnAcceptValidationActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -211,14 +151,10 @@ public class ValidacionJefe extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAcceptValidation;
-    private javax.swing.JButton btnCancel;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblHead;
     public static javax.swing.JLabel lblNameValidation;
     private javax.swing.JPanel panelDatos;
     public static javax.swing.JTable tblDatos;
-    private static javax.swing.JPasswordField tptValidationPassWord;
     // End of variables declaration//GEN-END:variables
 }

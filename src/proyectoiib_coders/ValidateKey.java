@@ -13,7 +13,7 @@ public class ValidateKey extends JDialog {
 
     //Declaro el objeto JefeEncargado
     JefeEncargado jefe;
-    ValidacionJefe ventanaDatos = new ValidacionJefe(this, true);
+    ValidacionJefe VentanaValidacion = new ValidacionJefe(this, true);
     
     public ValidateKey(JDialog parent, boolean modal) {
         super(parent, modal);
@@ -54,6 +54,11 @@ public class ValidateKey extends JDialog {
         });
 
         btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,8 +104,26 @@ public class ValidateKey extends JDialog {
 
     private void btnAceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptActionPerformed
         //Programando el boton Aceptar
-        ventanaDatos.setVisible(true);
+        String key;
+        key = String.valueOf(txtValidateKey.getPassword());
+        System.out.println(key);
+        jefe.mensaje();
+        if(jefe.validateKey(key)){
+            //jefe.getNombre();
+            this.dispose();
+            VentanaValidacion.show();
+            txtValidateKey.setText(null);
+        
+        }else{
+            System.out.println("contraseña incorrecta");
+        }
+
     }//GEN-LAST:event_btnAceptActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     /**
      * @param args the command line arguments

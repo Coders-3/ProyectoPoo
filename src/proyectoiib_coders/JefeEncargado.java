@@ -28,7 +28,7 @@ package proyectoiib_coders;
     }
     
     public  void mensaje(){
-        System.out.println("este es un mensaje");
+        System.out.println("este es un mensaje la clave es: "+this.claveAcceso);
     }
     
     //codigo para validar la clave del jefe

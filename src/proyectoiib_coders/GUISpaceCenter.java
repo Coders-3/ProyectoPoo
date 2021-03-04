@@ -15,7 +15,6 @@ import javax.swing.*;
 public class GUISpaceCenter extends javax.swing.JFrame {
     
     //Creando la ventana de validacion
-    //ValidateKey wKey = new ValidateKey(this, true);
     InformacionDatos VentanaDatos = new InformacionDatos(this, true);
     
     
@@ -435,6 +434,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
         btnCleanUp.setText("Clean Up");
 
         btnSave.setText("Save");
+        btnSave.setAutoscrolls(true);
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
@@ -492,7 +492,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
         //Mostrando las ventanas
         //VentanaValidacion.show();
         //wKey.VentanaDatos.show();
-        VentanaDatos.show();
+        
         System.out.println("Mostrando la ventana datos");
         
         
@@ -527,7 +527,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
             spaceCenterDisplay=txtSCName.getText();
             
             //Creando al jefe
-            //wKey.jefe = new JefeEncargado(headEngineer, passWord);
+            VentanaDatos.wKey.jefe = new JefeEncargado(headEngineer, passWord);
             
 
             if(orbitAltitude>=304 && orbitAltitude<=528){
@@ -558,7 +558,10 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                 
                 //visualizacion en las nuevas ventanas
                 VentanaDatos.lblEngineerDisplay.setText(headEngineer);
+                //VentanaDatos.lblEngineerDisplay.setText(VentanaDatos.wKey.jefe.getNombre());
+                System.out.println("mostrando el nombre");
                 ValidacionJefe.lblNameValidation.setText(headEngineer);
+                //ValidacionJefe.lblNameValidation.setText(VentanaDatos.wKey.jefe.getNombre());
                 VentanaDatos.lblSpaceCenterDisplay.setText(spaceCenterDisplay);
                 VentanaDatos.lblSpaceAltitudeDisplay.setText(Double.toString(spaceCenterAltitude));
                 VentanaDatos.lblrocketDisplay.setText(nombreNave);
@@ -577,7 +580,11 @@ public class GUISpaceCenter extends javax.swing.JFrame {
             }
         }catch(NumberFormatException nfe){
             JOptionPane.showMessageDialog(rootPane, "Debe ingresar un numero");
-        }        
+        } 
+        
+        VentanaDatos.show();
+        System.out.println(VentanaDatos.wKey.jefe.getName());
+        System.out.println(VentanaDatos.wKey.jefe.getNombre());
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtSCAltitudeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSCAltitudeKeyReleased
@@ -718,7 +725,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnCleanUp;
-    private javax.swing.JToggleButton btnSave;
+    public static javax.swing.JToggleButton btnSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
