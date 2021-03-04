@@ -108,7 +108,7 @@ public class ValidateKey extends JDialog {
         key = String.valueOf(txtValidateKey.getPassword());
         System.out.println(key);
         jefe.mensaje();
-        if(jefe.validateKey(key)){
+        if(jefe.validateKeyV2(key)){
             //jefe.getNombre();
             this.dispose();
             VentanaValidacion.show();
