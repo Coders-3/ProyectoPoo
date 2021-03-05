@@ -152,7 +152,7 @@ public class ValidateKey extends JDialog {
             txtValidateKey.setText(null);
         
         }else{
-            System.out.println("contraseña incorrecta");
+            JOptionPane.showMessageDialog(null, "Contraseña Incorrecta","Error!", JOptionPane.WARNING_MESSAGE);
         }
 
     }//GEN-LAST:event_btnAceptActionPerformed

@@ -483,19 +483,10 @@ public class GUISpaceCenter extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         
-        // Programando el boton Save
-        //InformacionDatos VentanaDatos = new InformacionDatos();
-        
-        //ValidacionJefe VentanaValidacion = new ValidacionJefe();
-        //ValidacionJefe.tblDatos.setModel(modeloTabla);
+
+
         VentanaDatos.wKey.VentanaValidacion.tblDatos.setModel(modeloTabla);
-        //Mostrando las ventanas
-        //VentanaValidacion.show();
-        //wKey.VentanaDatos.show();
-        
-        System.out.println("Mostrando la ventana datos");
-        
-        
+
         
         //Datos
         String headEngineer, passWord, nombreNave, spaceCenterDisplay, dia, mes, año;
@@ -537,7 +528,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                 n1.calcularPerido();             //calculo del periodo
                 n1.calcularTiempoFinal();             //calculo del tiempo que demorara en entrar a orbita con la ecuacion del cohete
                 
-               //Compartiendo datos para busqueda
+               //Compartiendo datos de la nave para busqueda
                VentanaDatos.wKey.VentanaValidacion.nave = n1;
                
                 //Calculos del viaje
@@ -553,7 +544,6 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                 
                 //visualizacion en las nuevas ventanas
                 VentanaDatos.lblEngineerDisplay.setText(headEngineer);
-                System.out.println("mostrando el nombre");
                 VentanaDatos.wKey.VentanaValidacion.lblNameValidation.setText(headEngineer);
                 VentanaDatos.wKey.lblValidateName.setText(headEngineer);
                 VentanaDatos.lblSpaceCenterDisplay.setText(spaceCenterDisplay);
@@ -568,6 +558,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                 VentanaDatos.lblEngineUse.setText(n1.getTiempoFinal()+" seconds");
                 VentanaDatos.lblOrbitalTime.setText(h1.verificarHora());
                 VentanaDatos.lblPeriod.setText(n1.getPeriodoOrbita()+" seconds");
+                VentanaDatos.show();
             }
             else{
                 JOptionPane.showMessageDialog(rootPane, "Debe ingresar una altitud de orbita entre [304-528] [km]");
@@ -576,9 +567,8 @@ public class GUISpaceCenter extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Debe ingresar un numero");
         } 
         
-        VentanaDatos.show();
-        System.out.println(VentanaDatos.wKey.jefe.getName());
-        System.out.println(VentanaDatos.wKey.jefe.getNombre());
+        
+
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtSCAltitudeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSCAltitudeKeyReleased
