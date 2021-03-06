@@ -37,8 +37,6 @@ package proyectoiib_coders;
         if(clave.equals(this.claveAcceso)){
             a = true;
         }
-        System.out.println(clave);
-        System.out.println(this.claveAcceso);
         return a;   
     }
     

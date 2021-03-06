@@ -65,7 +65,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
         txtSCAltitude = new javax.swing.JTextField();
         txtHeadEngineer = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        tptPassWord = new javax.swing.JPasswordField();
+        txtPassWord = new javax.swing.JPasswordField();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -228,9 +228,9 @@ public class GUISpaceCenter extends javax.swing.JFrame {
 
         jLabel18.setText("Password:");
 
-        tptPassWord.addActionListener(new java.awt.event.ActionListener() {
+        txtPassWord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tptPassWordActionPerformed(evt);
+                txtPassWordActionPerformed(evt);
             }
         });
 
@@ -253,7 +253,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                     .addComponent(jLabel18))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tptPassWord, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPassWord, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtHeadEngineer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(104, Short.MAX_VALUE))
         );
@@ -270,7 +270,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel18)
-                            .addComponent(tptPassWord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtPassWord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addGap(18, 18, 18)
@@ -496,7 +496,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
         double propMass=grossMass-dryMass;
         double a;                                   //variables para la tabla de datos: aceleracion momentum(implementar despues)
         double hora, min, seg, spaceCenterAltitude, orbitAltitude;
-        
+
         
         try{
             //Integer Asignation
@@ -514,7 +514,7 @@ public class GUISpaceCenter extends javax.swing.JFrame {
             //String Asignation
             nombreNave=txtRocketName.getText();
             headEngineer=txtHeadEngineer.getText();
-            passWord=String.valueOf(tptPassWord.getPassword());
+            passWord=String.valueOf(txtPassWord.getPassword());
             spaceCenterDisplay=txtSCName.getText();
             
             //Creando al jefe
@@ -558,7 +558,25 @@ public class GUISpaceCenter extends javax.swing.JFrame {
                 VentanaDatos.lblEngineUse.setText(n1.getTiempoFinal()+" seconds");
                 VentanaDatos.lblOrbitalTime.setText(h1.verificarHora());
                 VentanaDatos.lblPeriod.setText(n1.getPeriodoOrbita()+" seconds");
-                VentanaDatos.show();
+                if(txtHeadEngineer.getText().length()==0){
+                    
+                    JOptionPane.showMessageDialog(null, "Ingrese algun nombre", "PARAMETRO VACIO", JOptionPane.WARNING_MESSAGE);
+                    if("".equals(passWord)){
+                        JOptionPane.showMessageDialog(null, "Ingrese Su contraseña", "PARAMETRO VACIO", JOptionPane.WARNING_MESSAGE);
+                    }
+                    else{
+                        VentanaDatos.show();
+                    }
+
+                }else{
+                    if("".equals(passWord)){
+                        JOptionPane.showMessageDialog(null, "Ingrese Su contraseña", "PARAMETRO VACIO", JOptionPane.WARNING_MESSAGE);
+                    }else{
+                        VentanaDatos.show();
+                    }
+  
+                }
+
             }
             else{
                 JOptionPane.showMessageDialog(rootPane, "Debe ingresar una altitud de orbita entre [304-528] [km]");
@@ -666,9 +684,9 @@ public class GUISpaceCenter extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtSecondKeyReleased
 
-    private void tptPassWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tptPassWordActionPerformed
+    private void txtPassWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassWordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tptPassWordActionPerformed
+    }//GEN-LAST:event_txtPassWordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -736,13 +754,13 @@ public class GUISpaceCenter extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private static javax.swing.JPasswordField tptPassWord;
     private javax.swing.JTextField txtDay;
     private javax.swing.JTextField txtHeadEngineer;
     private javax.swing.JTextField txtHour;
     private javax.swing.JTextField txtMinute;
     private javax.swing.JTextField txtMonth;
     private javax.swing.JTextField txtOrbitAltitude;
+    public javax.swing.JPasswordField txtPassWord;
     private javax.swing.JTextField txtRocketName;
     private javax.swing.JTextField txtSCAltitude;
     private javax.swing.JTextField txtSCName;

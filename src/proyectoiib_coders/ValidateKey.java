@@ -143,7 +143,6 @@ public class ValidateKey extends JDialog {
         //Programando el boton Aceptar
         String key;
         key = String.valueOf(txtValidateKey.getPassword());
-        System.out.println(key);
         jefe.mensaje();
         if(jefe.validateKeyV2(key)){
             //jefe.getNombre();
