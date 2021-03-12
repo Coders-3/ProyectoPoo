@@ -9,7 +9,8 @@ package proyectoiib_coders;
  *
  * @author Ricardo
  */
-public class JefeEncargado extends AgenciaAeronautica{
+ class JefeEncargado extends AgenciaAeronautica{
+    
     private String claveAcceso;
 
     public String getClaveAcceso() {
@@ -18,6 +19,25 @@ public class JefeEncargado extends AgenciaAeronautica{
 
     public void setClaveAcceso(String claveAcceso) {
         this.claveAcceso = claveAcceso;
+    }
+    
+    //Constructores
+    public JefeEncargado(String name, String passWord){
+        super(name);
+        this.claveAcceso = passWord;
+    }
+    
+    public  void mensaje(){
+        System.out.println("este es un mensaje la clave es: "+this.claveAcceso);
+    }
+    
+    //codigo para validar la clave del jefe  
+    public boolean validateKeyV2(String clave){
+        boolean a = false;
+        if(clave.equals(this.claveAcceso)){
+            a = true;
+        }
+        return a;   
     }
     
 }

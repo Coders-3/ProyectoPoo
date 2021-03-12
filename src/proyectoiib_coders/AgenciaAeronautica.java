@@ -9,7 +9,7 @@ package proyectoiib_coders;
  *
  * @author USER
  */
-public class AgenciaAeronautica {
+public class AgenciaAeronautica extends GUISpaceCenter{
     
     private String nombre;
     private String id;
@@ -30,6 +30,11 @@ public class AgenciaAeronautica {
         this.id = id;
     }
     
+    //primer constructor
+    public AgenciaAeronautica(String nombre){
+        super();
+        this.nombre = nombre;
+    }
     
     
     
